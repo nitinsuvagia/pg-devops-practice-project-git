@@ -1,0 +1,88 @@
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS$ git clone git@github.com:nitinsuvagia/pg-devops-practice-project-git.git
+Cloning into 'pg-devops-practice-project-git'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+Checking connectivity... done.
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS$ ls
+pg-devops-practice-project-git
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS$ cd pg-devops-practice-project-git
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ ls
+README.md
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ git branch
+* main
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ git branch dev1
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ git branch
+  dev1
+* main
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ git checkout dev1
+Switched to branch 'dev1'
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ git branch
+* dev1
+  main
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$
+
+
+
+
+
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ echo "Project file 1" > proj_file-1-dev1.txt
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ echo "Project file 2" > proj_file-2-dev1.txt
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ ls
+proj_file-1-dev1.txt  proj_file-2-dev1.txt  README.md
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ git add .
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ git commit -m "Commit all files"
+[dev1 d6d56fd] Commit all files
+ Committer: nitin@softqubes.com <nitinsoftqubes@ip-172-31-20-174.ec2.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 2 files changed, 2 insertions(+)
+ create mode 100644 proj_file-1-dev1.txt
+ create mode 100644 proj_file-2-dev1.txt
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ git push origin dev1
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 373 bytes | 0 bytes/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+remote: 
+remote: Create a pull request for 'dev1' on GitHub by visiting:
+remote:      https://github.com/nitinsuvagia/pg-devops-practice-project-git/pull/new/dev1
+remote: 
+To git@github.com:nitinsuvagia/pg-devops-practice-project-git.git
+ * [new branch]      dev1 -> dev1
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ 
+
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ git branch
+* dev1
+  main
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ git log --oneline --all --decorate --graph
+* d6d56fd (HEAD -> dev1, origin/dev1) Commit all files
+* 52fd001 (origin/main, origin/HEAD, main) Initial commit
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ git checkout main
+Switched to branch 'main'
+Your branch is up-to-date with 'origin/main'.
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ git branch
+  dev1
+* main
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ git merge dev1
+Updating 52fd001..d6d56fd
+Fast-forward
+ proj_file-1-dev1.txt | 1 +
+ proj_file-2-dev1.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 proj_file-1-dev1.txt
+ create mode 100644 proj_file-2-dev1.txt
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ ls
+proj_file-1-dev1.txt  proj_file-2-dev1.txt  README.md
+nitinsoftqubes@ip-172-31-20-174:~/PG-DEVOPS/pg-devops-practice-project-git$ 
